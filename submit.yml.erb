@@ -1,14 +1,14 @@
-# process advance job options
+# process advanced job options
 <%- 
 if ! advanced_job_options.blank? then
 
-  require "/share/support/public/ood/ruby/hostspecs.rb"
+  require "/opt/ood/lib/hostspecs.rb"
   host_specs = getHostSpecs()
   libpath = host_specs[:libpath]
   require libpath+"/process_advanced_options.rb"
   options = processAdvancedOptions(advanced_job_options)
 
-end 
+end
 -%>
 
 ---
@@ -37,6 +37,6 @@ script:
               end
             end
             -%>
-            "--qos",             "interactive"
+            "--qos",             "interactive",
             "--job-name",        "ood-desktop"
           ]
